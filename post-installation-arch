@@ -1,0 +1,6 @@
+yay -S awesome rofi picom i3lock-fancy xclip ttf-roboto polkit-gnome materia-theme lxappearance flameshot pnmixer network-manager-applet xfce4-power-manager qt5-styleplugins -y
+wget -qO- https://git.io/papirus-icon-theme-install | sh
+git clone https://github.com/Raaydon/awesome-config ~/.config/awesome
+mkdir -p ~/.config/rofi
+cp $HOME/.config/awesome/theme/config.rasi ~/.config/rofi/config.rasi
+sed -i '/@import/c\@import "'$HOME'/.config/awesome/theme/sidebar.rasi"' ~/.config/rofi/config.rasi
