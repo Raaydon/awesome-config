@@ -12,9 +12,24 @@ An almost desktop environment made with [AwesomeWM](https://awesomewm.org/) foll
 |:-------------:|:-------------:|:-------------:|
 |![](./theme/titus-theme/fullscreen.png)|![](./theme/titus-theme/panel.png)|![](https://i.imgur.com/rcKOLYQ.png)|
 
-## Installation
+### 1) Same theme for Qt/KDE applications and GTK applications, and fix missing indicators
 
-### 1) Get all the dependencies
+First install `qt5-style-plugins` (debian) | `qt5-styleplugins` (arch) and add this to the bottom of your `/etc/environment`
+
+```bash
+XDG_CURRENT_DESKTOP=Unity
+QT_QPA_PLATFORMTHEME=gtk2
+```
+
+The first variable fixes most indicators (especially electron based ones!), the second tells Qt and KDE applications to use your gtk2 theme set through lxappearance.
+### 2) Change the look of the terminal
+
+replace the .bashrc file with the one in your home folder
+
+
+## What is inside the installation script
+
+### Get all the dependencies
 
 #### Debian-Based
 
@@ -54,7 +69,7 @@ wget -qO- https://git.io/papirus-icon-theme-install | sh
 - [network-manager-applet](https://gitlab.gnome.org/GNOME/network-manager-applet) nm-applet is a Network Manager Tray display from GNOME.
 - [xfce4-power-manager](https://docs.xfce.org/xfce/xfce4-power-manager/start) XFCE4's power manager is excellent and a great way of dealing with sleep, monitor timeout, and other power management features.
 
-### 2) Clone the configuration
+### Clone the configuration
 
 Arch-Based Installs
 ```
@@ -66,7 +81,7 @@ Debian-Based Installs
 git clone --branch debian https://github.com/Raaydon/awesome-config ~/.config/awesome
 ```
 
-### 3) Set the themes
+### Set the themes
 
 Start `lxappearance` to active the **icon** theme and **GTK** theme
 Note: for cursor theme, edit `~/.icons/default/index.theme` and `~/.config/gtk3-0/settings.ini`, for the change to also show up in applications run as root, copy the 2 files over to their respective place in `/root`.
@@ -79,30 +94,3 @@ mkdir -p ~/.config/rofi
 cp $HOME/.config/awesome/theme/config.rasi ~/.config/rofi/config.rasi
 sed -i '/@import/c\@import "'$HOME'/.config/awesome/theme/sidebar.rasi"' ~/.config/rofi/config.rasi
 ```
-
-### 4) Same theme for Qt/KDE applications and GTK applications, and fix missing indicators
-
-First install `qt5-style-plugins` (debian) | `qt5-styleplugins` (arch) and add this to the bottom of your `/etc/environment`
-
-```bash
-XDG_CURRENT_DESKTOP=Unity
-QT_QPA_PLATFORMTHEME=gtk2
-```
-
-The first variable fixes most indicators (especially electron based ones!), the second tells Qt and KDE applications to use your gtk2 theme set through lxappearance.
-
-### 5) Read the documentation
-
-The documentation live within the source code.
-
-The project is split in functional directories and in each of them there is a readme where you can get additional information about the them.
-
-* [Configuration](./configuration) is about all the **settings** available
-* [Layout](./layout) hold the **disposition** of all the widgets
-* [Module](./module) contain all the **features** available
-* [Theme](./theme) hold all the **aesthetic** aspects
-* [Widget](./widget) contain all the **widgets** available
-
-### 6) Change the look of the terminal
-
-replace the .bashrc file with the one in your home folder
