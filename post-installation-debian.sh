@@ -10,7 +10,7 @@ echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable ma
 sudo apt update
 sudo apt install brave-browser
 sudo add-apt-repository ppa:aslatter/ppa 
-sudo apt install awesome fonts-roboto rofi compton i3lock xclip qt5-style-plugins materia-gtk-theme lxappearance xbacklight flameshot nautilus xfce4-power-manager pnmixer network-manager-gnome policykit-1-gnome alacritty nautilus brave -y
+sudo apt install nitrogen awesome fonts-roboto rofi compton i3lock xclip qt5-style-plugins materia-gtk-theme lxappearance xbacklight flameshot nautilus xfce4-power-manager pnmixer network-manager-gnome policykit-1-gnome alacritty nautilus brave -y
 wget -qO- https://git.io/papirus-icon-theme-install | sh
 git clone --branch debian https://github.com/Raaydon/awesome-config ~/.config/awesome
 mkdir -p ~/.config/rofi
